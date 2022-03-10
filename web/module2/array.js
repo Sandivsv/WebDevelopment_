@@ -23,6 +23,10 @@ console.log(arr2);
 arr2.unshift("newly item");
 console.log("After adding Item= ", arr2);
 
+// "shift" ->  remove  item in first index 
+arr2.unshift("newly item");
+console.log("After adding Item= ", arr2);
+
 // length of Array
 
 let len=arr2.length;
