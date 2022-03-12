@@ -1,0 +1,1 @@
+console.log("Hi I am abc.js file, Your test is successful");
