@@ -14,7 +14,7 @@ if(!fs.existsSync("New Folderdir")){
 }
 
 // if we want to give path for creating folder 
-// fs.mkdirSync(filepath,"myFile");      // Error to give path.
+fs.mkdirSync("myFile");      // Error to give path.
 
 
 // read that directory (.readdirSync)

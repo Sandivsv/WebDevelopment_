@@ -2,7 +2,12 @@ let str="I am sandeep";
 let len=str.length;
 console.log(len);
 
-// split string by slice
+
+// Check if a string includes any vhar or string.....
+console.log(str.includes("san"));
+
+
+// split string by .slice(_ , _)  && .split(" ") is also work
 
 let s2=str.slice(5,9);
 console.log(s2);
