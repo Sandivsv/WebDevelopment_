@@ -6,6 +6,7 @@ let fs=require("fs");
 let filepath=__dirname;
 console.log(filepath);
 
+// want to go previous folder use ".."
 let source=path.join(filepath,"module1", "index.html");
 let destination=path.join(filepath,"module2","html.txt");
 

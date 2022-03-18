@@ -4,23 +4,19 @@
 let path=require("path");
 let fs=require("fs");
 
-let filepath=__dirname;
+let filepath=path.join(__dirname, "unorganised" );
 // console.log(filepath);
+
 
 let files=fs.readdirSync(filepath);
 // console.log(files);
 
-let len=files.length;
-
-for(let i=0;i<len;i++){
-    if(files[i].includes(".")){
-        // console.log(true);
-        let s=files[i].split(".");
-        console.log(s[1]);
-    }
+let extArr=[];
+for(let i=0; i<files.length; i++){
+    let extName= path.extname(files[i]);
+    // console.log(extName);
+    extArr.push(extName);
 }
 
-
-
-// let extname = fs.extname(filepath,"q3.js"));
-// console.log(extname);
+console.log(extArr);
+    

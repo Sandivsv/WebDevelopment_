@@ -5,7 +5,7 @@ let path=require("path");
 let fs=require("fs");
 
 let filepath=__dirname;
-// console.log(filepath);
+console.log(filepath);
 
 if(!fs.existsSync("module1")){
     fs.mkdirSync("module1");
