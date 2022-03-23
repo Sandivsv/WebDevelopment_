@@ -2,15 +2,12 @@ let fs= require('fs');
 let path=require('path');
 
 let inputArr=process.argv;
-// console.log(inputArr);
 
 // o/p ->  ['pathToNode', 'pathTofile', 'input pased in terminal']
 
 let folderPath =inputArr[2];
-// console.log(folderPath)
 
 // at run time we give in cmd (node fileOrganiser.js "path of folder")
-
 // diffrenciate file by its extension 
 
 let extensions={
@@ -25,23 +22,19 @@ let extensions={
 if(fs.existsSync(folderPath)){
     // console.log("path is valid...");
     let files=fs.readdirSync(folderPath);
-    // console.log(files);
     for(let i=0;i<files.length; i++){
         let ext=path.extname(files[i]);
 
         let NameOfFolder=giveFolderName(ext);
-        // console.log('ext-->',ext,'FolderName->',NameOfFolder);
 
         let organisedPath=path.join(folderPath,"..","organised");
         if(! fs.existsSync(organisedPath)){  // folder of organised path
             fs.mkdirSync(organisedPath);
         }
         let NewfolderPath=path.join(organisedPath,NameOfFolder);
-        // console.log(NewfolderPath);
 
-        let exist= fs.existsSync(NewfolderPath);
-        // if folder exist then move file in folder else create and move 
-        
+
+        let exist= fs.existsSync(NewfolderPath);        
         if(exist){
             moveFile(folderPath,NewfolderPath,files[i]);
         }
