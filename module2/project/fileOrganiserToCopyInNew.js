@@ -1,4 +1,5 @@
-// to run this file type-> ( node fileOrganiser.js "C:\Users\sandeep kumar\Documents\FJP-6_Web\module2\project\media" )
+// to run this file type-->> ( node fileOrganiserToCopyInNew.js "C:\Users\sandeep kumar\Documents\FJP-6_Web\module2\project\unorganised" )
+
 
 let fs= require('fs');
 let path=require('path');
@@ -21,26 +22,31 @@ let extensions={
 
 
 if(fs.existsSync(folderPath)){
+    // console.log("path is valid...");
     let files=fs.readdirSync(folderPath);
-
+    // console.log(files);
     for(let i=0;i<files.length; i++){
         let ext=path.extname(files[i]);
 
         let NameOfFolder=giveFolderName(ext);
         // console.log('ext-->',ext,'FolderName->',NameOfFolder);
 
-        let organisedFolder=path.join(folderPath,NameOfFolder);
-        // console.log(organisedFolder);
+        let organisedPath=path.join(folderPath,"..","organised");
+        if(! fs.existsSync(organisedPath)){  // folder of organised path
+            fs.mkdirSync(organisedPath);
+        }
+        let NewfolderPath=path.join(organisedPath,NameOfFolder);
+        // console.log(NewfolderPath);
 
-        let exist= fs.existsSync(organisedFolder);
+        let exist= fs.existsSync(NewfolderPath);
         // if folder exist then move file in folder else create and move 
-        //and after that remove unorganised files.
         
         if(exist){
-            moveFile(folderPath,organisedFolder,files[i]);        }
+            moveFile(folderPath,NewfolderPath,files[i]);
+        }
         else{
-            fs.mkdirSync(organisedFolder);
-            moveFile(folderPath,organisedFolder,files[i]);
+            fs.mkdirSync(NewfolderPath);
+            moveFile(folderPath,NewfolderPath,files[i]);
         }
     }
 }
@@ -63,10 +69,9 @@ function giveFolderName(ext){
 }
 
 
-function moveFile(folderPath,organisedFolder,fileName){
+function moveFile(folderPath,NewfolderPath,fileName){
     let sourcepath=path.join(folderPath,fileName);
-    let destination=path.join(organisedFolder,fileName);
+    let destination=path.join(NewfolderPath,fileName);
     fs.copyFileSync(sourcepath,destination);
-    fs.unlinkSync(sourcepath);
 }
 
