@@ -4,7 +4,12 @@ const request = require('request');
 const jsdom = require('jsdom');
 const {JSDOM} = jsdom;
 
-const link="https://www.espncricinfo.com/series/ipl-2021-1249214/royal-challengers-bangalore-vs-kolkata-knight-riders-eliminator-1254115/full-scorecard"
+// checking differnt match 
+const link="https://www.espncricinfo.com/series/ipl-2021-1249214/sunrisers-hyderabad-vs-mumbai-indians-55th-match-1254088/full-scorecard";
+// const link="https://www.espncricinfo.com/series/ipl-2021-1249214/royal-challengers-bangalore-vs-kolkata-knight-riders-eliminator-1254115/full-scorecard";
+// const link="https://www.espncricinfo.com/series/ipl-2021-1249214/chennai-super-kings-vs-punjab-kings-53rd-match-1254094/full-scorecard";
+
+
 request(link, cb);
 
 function cb(error, response, html){
@@ -14,15 +19,12 @@ function cb(error, response, html){
         const dom = new JSDOM(html);
         const documents = dom.window.document;
 
-        // let name = documents.querySelector(".team.team-gray .name-link .name");
-        // console.log(name.textContent);
-
         let bowlerTables = documents.querySelectorAll(".table.bowler");
         // console.log(bowlerTables[0].textContent);
         // console.log(bowlerTables.length);
 
         let highWikt=0;   //for count highest Wicket
-        let name ="";
+        let nameOfWktr ="";
 
         for(let i=0; i<bowlerTables.length; i++){
             let rows = bowlerTables[i].querySelectorAll("tbody tr");
@@ -37,14 +39,14 @@ function cb(error, response, html){
                     console.log("Name-: ", tds[0].textContent, ", Number of Wicket -: ", tds[4].textContent);
                     if(highWikt < tds[4].textContent){
                         highWikt = tds[4].textContent;
-                        name = tds[0].textContent;
+                        nameOfWktr = tds[0].textContent;
                     }
                 }
             }
         }
 
         console.log("*******************************************************");
-        console.log("Maximum Wicket-:", highWikt, "taken By '", name, "'\n");   // Highest Wicket taken and his Name
+        console.log("Maximum Wicket-:", highWikt, "taken By '", nameOfWktr, "'\n");   // Highest Wicket taken and his Name
 
 
         
