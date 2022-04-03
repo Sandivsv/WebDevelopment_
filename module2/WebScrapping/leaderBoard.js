@@ -2,11 +2,14 @@
 // Find Match Details of IPL like name, runs, balls, fours, sixes, Skill Rating 
 
 const request= require("request");
+const fs = require("fs");
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 
 const link = "https://www.espncricinfo.com/series/ipl-2021-1249214/match-results";
 let leaderBoard = [];
+let counter = 0;
+
 
 request(link, cb);
 
@@ -26,7 +29,7 @@ function cb(error, response, html){
             // console.log(completeLink);   // Links of all Matches...
 
             request(completeLink, cb2);
-
+            counter++;
         }
 
 
@@ -53,25 +56,56 @@ function cb2(error, response, html){
                 let matches = playerDetail[4].textContent;
                 let fours = playerDetail[5].textContent;
                 let sixes = playerDetail[6].textContent;
-                let strikeRate = playerDetail[7].textContent;
+                // let SkillRate = playerDetail[7].textContent;
 
                 // Details of each player 
-                console.log("Name-", name, " Runs-", runs, " Balls-", balls, " Matches-", matches, " Fours-", fours, " Sixes-", sixes, " Strike Rate-", strikeRate);
+                processPlayer(name, runs, balls, matches, fours, sixes);
             }
         }
-        console.log("********************************************");
+
+        counter--;
+        // This is the place when full code run in node api then we got full details in leaderBoard
+        if(counter==0){
+            console.log(leaderBoard);
+
+            let data = JSON.stringify(leaderBoard);
+            fs.writeFileSync("BatsmenStats.json", data);
+
+        }
     }
 }
 
 
 
-// function processPlayer(name, runs, balls, fours, sixes, skillRate){
-    
+function processPlayer(name, runs, balls, fours, sixes){
+    runs = Number(runs);
+    balls = Number(balls);
+    fours = Number(fours);
+    sixes = Number(sixes);
+
+    for(let i=0; i<leaderBoard.length; i++){
+        let playerObj = leaderBoard[i];
+        if(playerObj.Name == name){
+            playerObj.Runs += runs;
+            playerObj.Innings += 1;
+            playerObj.Balls += balls;
+            playerObj.Fours += fours;
+            playerObj.Sixes += sixes;
+            return;
+        }
+    }
 
 
+    let obj = {
+        Name: name,
+        Innings: 1,
+        Runs: runs,
+        Balls: balls,
+        Fours: fours,
+        Sixes: sixes,
+    }
+    leaderBoard.push(obj);
+}
 
 
-//     let obj = {
-
-//     }
-// }
+// console.log("line 80-->> ", leaderBoard)
