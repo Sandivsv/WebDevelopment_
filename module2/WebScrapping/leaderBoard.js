@@ -5,6 +5,7 @@ const request= require("request");
 const fs = require("fs");
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
+const xlsx = require("json-as-xlsx");
 
 const link = "https://www.espncricinfo.com/series/ipl-2021-1249214/match-results";
 let leaderBoard = [];
@@ -20,19 +21,18 @@ function cb(error, response, html){
     else{
         const dom = new JSDOM(html);
         const document = dom.window.document;
-        let allScoreTags = document.querySelectorAll('a[data-hover="Scorecard"]');
-        // console.log(allScoreTags.length);
+        let allScoreTags = document.querySelectorAll('.ds-border-b.ds-border-line');
+        // console.log(allScoreTags.length);  // 70 but in last 10 only image link
 
-        for(let i =0; i< allScoreTags.length; i++){
-            let link = allScoreTags[i].href;
+        for(let i =0; i< 60; i++){ 
+            let anchorTagAll = allScoreTags[i].querySelectorAll("a");
+            let link = anchorTagAll[2].href;
             let completeLink = "https://www.espncricinfo.com" + link;
             // console.log(completeLink);   // Links of all Matches...
 
             request(completeLink, cb2);
             counter++;
         }
-
-
     }
 }
 
@@ -45,7 +45,7 @@ function cb2(error, response, html){
     else{
         const dom = new JSDOM(html);
         const document = dom.window.document;
-        let batsManRow = document.querySelectorAll(".table.batsman tbody tr");
+        let batsManRow = document.querySelectorAll('tbody [class="ds-border-b ds-border-line ds-text-tight-s"]');   // or =="tbody .ds-border-b.ds-border-line.ds-text-tight-s"
         for(let i=0; i<batsManRow.length; i++){
             let playerDetail = batsManRow[i].querySelectorAll("td");
             
@@ -62,15 +62,36 @@ function cb2(error, response, html){
                 processPlayer(name, runs, balls, matches, fours, sixes);
             }
         }
-
         counter--;
+        
         // This is the place when full code run in node api then we got full details in leaderBoard
         if(counter==0){
-            console.log(leaderBoard);
-
+            // console.log(leaderBoard);
             let data = JSON.stringify(leaderBoard);
             fs.writeFileSync("BatsmenStats.json", data);
 
+            let excelData = [
+                {
+                  sheet: "IPL Stats",
+                  columns: [
+                    { label: "Name", value: "Name" }, // Top level data
+                    { label: "Innings", value: "Innings" },
+                    { label: "Runs", value: "Runs" }, // Custom format
+                    { label: "Balls", value: "Balls" }, // Run functions
+                    { label: "Fours", value: "Fours" },
+                    { label: "Sixes", value: "Sixes" },
+                  ],
+                  content: leaderBoard
+                },
+              ]
+              
+            let settings = {
+                fileName: "MatchDetails", // Name of the resulting spreadsheet
+                extraLength: 3, // A bigger number means that columns will be wider
+                writeOptions: {}, // Style options from https://github.com/SheetJS/sheetjs#writing-options
+            }
+              
+            xlsx(excelData, settings) // Will download the excel file
         }
     }
 }
@@ -94,7 +115,6 @@ function processPlayer(name, runs, balls, fours, sixes){
             return;
         }
     }
-
 
     let obj = {
         Name: name,
