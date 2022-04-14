@@ -23,6 +23,8 @@ f1kaPromise.catch(function(error){     // error
 })
 
 // for file 2
+console.log(f2kaPromise);
+
 f2kaPromise.then(function(data){        
     console.log(data+"");
 })
