@@ -22,3 +22,8 @@ function cb(error, data){
 }
 
 console.log("After: ");
+
+
+
+// It is Known as Callback Hell 
+// Resolve this issue we use promises 
