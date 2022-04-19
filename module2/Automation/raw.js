@@ -22,7 +22,7 @@ const puppeteer = require('puppeteer');
 
 let browserPromise = puppeteer.launch({headless: false});
 
-browserPromise.then(function(browser){
+browserPromise.then(function(browser){      //when browser promiser fullfill then open
     console.log("Browser is open");
     let pagePromise = browser.newPage();
     return pagePromise;
@@ -33,3 +33,6 @@ browserPromise.then(function(browser){
 }).then(function(){
     console.log("Google is Opened");
 })
+
+
+
