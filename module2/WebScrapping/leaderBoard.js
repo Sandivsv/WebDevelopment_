@@ -36,8 +36,6 @@ function cb(error, response, html){
     }
 }
 
-
-
 function cb2(error, response, html){
     if(error){
         console.log(error);
@@ -86,7 +84,7 @@ function cb2(error, response, html){
               ]
               
             let settings = {
-                fileName: "MatchDetails", // Name of the resulting spreadsheet
+                fileName: "IPL_MatchDetails", // Name of the resulting spreadsheet
                 extraLength: 3, // A bigger number means that columns will be wider
                 writeOptions: {}, // Style options from https://github.com/SheetJS/sheetjs#writing-options
             }
