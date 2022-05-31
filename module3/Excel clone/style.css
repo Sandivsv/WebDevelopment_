@@ -18,11 +18,13 @@
     height:85vh;
     background-color: aquamarine;
     overflow: auto;
+    position: relative;
 }
 
 .sheets{
     border: 0.5px solid;
     height: 30px;
+    top: 30px;
 }
 
 .row{
@@ -67,7 +69,7 @@
     background-color: gainsboro;
     position: absolute;
     left: 0px;
-    top:90px;
+    top:30px;
 }
 
 .left-col-cell{
@@ -81,6 +83,6 @@
 
 .cells{
     position: absolute;
-    top:90px;
+    top:30px;
     left:30px;
 } 

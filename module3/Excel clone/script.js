@@ -18,6 +18,7 @@ function initCells(){
         cellsContent+=`<div class='left-col-cell'>${i+1}</div>`
     }
     cellsContent+="</div>"
+
     cellsContent+="<div class='cells'>"
     for(let i=0;i<100;i++){
         cell+="<div class = 'row'>";
