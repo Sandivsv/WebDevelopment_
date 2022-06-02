@@ -1,39 +1,50 @@
-let cellsContent = document.querySelector(".cells-content");
-let cellsContentDiv = document.querySelector(".cells-content");
+let topRow = document.querySelector(".top-row");
+let leftCol = document.querySelector(".left-col");
+let topLeftCell = document.querySelector(".top-left-cell");
+let allCells = document.querySelectorAll(".cell");
+let addressInput = document.querySelector("#address");
+let formulaInput = document.querySelector("#formula");
+let lastSelectedCell;
 
+cellsContentDiv.addEventListener("scroll",function(e){
+    let scrollFromTop = e.target.scrollTop;
+    let scrollFromLeft = e.target.scrollLeft;
+    topRow.style.top = scrollFromTop+"px";
+    leftCol.style.left = scrollFromLeft+"px";
+    topLeftCell.style.top = scrollFromTop+"px";
+    topLeftCell.style.left = scrollFromLeft+"px";
+})
 
-function initCells(){
-    let cell = "";
-    let cellsContent = "<div class='top-left-cell'></div>";
-    //top-row
-    cellsContent+="<div class='top-row'>"
-    for(let i=0;i<26;i++){
-        cellsContent+=`<div class='top-row-cell'>${String.fromCharCode(65+i)}</div>`;
-    }
-    cellsContent+="</div>"
+for(let i=0;i<allCells.length;i++){
+    allCells[i].addEventListener("click",function(e){
+        let rowId = Number(e.target.getAttribute("rowid"));
+        let colId = Number(e.target.getAttribute("colid"));
+        let address = String.fromCharCode(65+colId)+(rowId+1)+"";
+        // console.log(address);
+        let cellObject = db[rowId][colId];
+        addressInput.value = address;
+        //update UI
+        formulaInput.value = cellObject.formula;
+    })
 
-    //left-col
-    cellsContent+="<div class='left-col'>"
-    for(let i=0;i<100;i++){
-        cellsContent+=`<div class='left-col-cell'>${i+1}</div>`
-    }
-    cellsContent+="</div>"
-
-    cellsContent+="<div class='cells'>"
-    for(let i=0;i<100;i++){
-        cell+="<div class = 'row'>";
-        cellsContent+="<div class = 'row'>";
-        //column
-        for(let j=0;j<26;j++){
-            cell+="<div class = 'cell'>CELL</div>"
-            cellsContent+="<div class = 'cell' contentEditable>CELL</div>"
+    allCells[i].addEventListener("blur",function(e){
+        lastSelectedCell = e.target;
+        let cellValue = e.target.textContent;
+        let {rowId,colId} = getRowIdColIdFromElement(e.target);
+        let cellObject = db[rowId][colId];
+        if(cellObject.value == cellValue){
+            return;
         }
-        cell+="</div>"
-        cellsContent+="</div>"
-    }
-    cellsContent.innerHTML = cell;
-    cellsContent+="</div>"
-    cellsContentDiv.innerHTML = cellsContent;
+        cellObject.value = cellValue;
+        console.log("After UPdate",cellObject);
+    })
 }
 
-initCells(); 
+
+formulaInput.addEventListener("blur",function(e){
+    let formula = e.target.value;
+    if(formula){
+        
+    }
+
+})
