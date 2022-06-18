@@ -1,0 +1,23 @@
+body{
+    display: flex; 
+    justify-content: center;
+
+}
+
+div{
+    width: 20vw;
+    height: 70vh;
+    background-color: antiquewhite;
+
+
+}
+
+
+li{
+    display: flex;
+    justify-content: space-around;
+}
+
+button{
+    background-color: aquamarine;
+}
