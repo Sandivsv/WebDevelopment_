@@ -5,13 +5,12 @@ class Todo extends Component{
     constructor(){
         super();
         this.state = {
-            tasks:["Learn JS","Learn DOM","Learn React","Learn Node"],
+            tasks:[{task: "Learn React", id:1 }, {task: "Learn JavaScript", id:2 }, {task: "Learn Web Devlopment", id:3 }],
             currTask:""
         }
     }
     
     handleChange = (e)=>{
-        // console.log(e.target.value);
         this.setState({
             currTask:e.target.value
         })
@@ -19,21 +18,33 @@ class Todo extends Component{
 
     handleAddTask = ()=>{
         this.setState({
-            tasks:[...this.state.tasks,this.state.currTask],
+            tasks:[...this.state.tasks,{task:this.state.currTask,id:this.state.tasks.length+1}],
             currTask:""
         })
+    }
+
+    handleDelete = (id)=>{
+        let narr = this.state.tasks.filter((taskObj)=>{
+            return taskObj.id !== id
+        })
+       this.setState({
+        tasks:[...narr]
+       })
     }
 
     render(){
         return(
             <div>
-                <input type="text" value={this.state.currTask} onChange={this.handleChange}/>
-                <button onClick={this.handleAddTask}>Add Task</button>
+                <div className="input-box">
+                    <input type="text" value={this.state.currTask} onChange={this.handleChange}/>
+                    <button onClick={this.handleAddTask}>Add Task</button>
+                </div>
                 <ul>
-                    {this.state.tasks.map((ele)=>(
-                        <li>
-                            <p>{ele}</p>
-                            <button>Delete</button>
+                    {this.state.tasks.map((taskObj)=>(
+                        <li key={taskObj.id}>
+                            <p>{taskObj.task}</p>
+                            {/* <button onClick={()=>this.handleDelete(taskObj.id)}>Delete</button> */}
+                            <i class="fa fa-trash" onClick={()=>this.handleDelete(taskObj.id)}></i>
                         </li>
                     ))}
                 </ul>
@@ -43,5 +54,3 @@ class Todo extends Component{
 }
 
 export default Todo;
-
-npx create-react-app movies-app
