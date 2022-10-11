@@ -10,6 +10,7 @@ class NavBar extends Component{
     render(){
         return(
         <nav className="bg-dark fixed-top"> 
+          
             <div style={{display:"flex",padding:'0.7rem'}}>
                 <Link to="/" style={{textDecoration:"none"}} >
                     <h1 className="page-logo">MovieWorld</h1>

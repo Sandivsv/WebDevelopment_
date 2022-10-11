@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { movies } from "../movieData"
+// import { movies } from "../movieData"
 import axios from "axios"
 
 class MovieList extends Component {
@@ -29,7 +29,7 @@ class MovieList extends Component {
     }
 
     handleNext=()=>{
-        console.log(movies)
+        // console.log(movies)
         this.setState({
             pArr:[...this.state.pArr, this.state.pArr.length+1],
             currPage:this.state.currPage+1

@@ -39,11 +39,6 @@
 }
 
 
-.movies-list :hover{
-  color: #282c34;
-  background-color: white;
-}
-
 .movies-list{
   display: flex;
   flex-wrap: wrap;
@@ -63,7 +58,10 @@
 }
 
 
-
+.movies-list :hover{
+  color: #282c34;
+  background-color: white;
+}
 
 .movie-card-img{
   min-width: 120px;
@@ -169,6 +167,16 @@ padding-top:3rem;
   text-align: center;
 }
 
+.fixCont1{
+  /* position: static; */
+  float: right;
+}
+
+/* .fixCont2{
+  overflow: scroll;
+  height: 150px;
+}
+ */
 
 
 

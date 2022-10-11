@@ -57,7 +57,7 @@ class Fav extends Component {
 
 
     handleCurrText = (inputValue)=>{
-        console.log(inputValue)
+        // console.log(inputValue)
         this.setState({
             currText:inputValue
         },this.searchMovies)
@@ -165,9 +165,9 @@ class Fav extends Component {
                         }
                     </div>
                     <div className="col-9 fav-table">
-                        <div className="row">
+                        <div className="row fixCont1">
                         <input type="text" className="form-control col" placeholder="Search" value={this.state.currText} onChange={(e)=>this.handleCurrText(e.target.value)}/>
-                        <input type="number" className="form-control col" />
+                        {/* <input type="number" className="form-control col" /> */}
                         </div>
 
                         <table className="table">

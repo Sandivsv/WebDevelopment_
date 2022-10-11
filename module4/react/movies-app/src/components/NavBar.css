@@ -3,6 +3,11 @@
     box-shadow: 1px 1px 2px 0 rgba(32, 27, 27, 0.952);
 } */
 
+nav{
+    border: 5px;
+    border-color: white;
+}
+
 .scrolled {
     --bs-bg-opacity: 1 !important;
 }

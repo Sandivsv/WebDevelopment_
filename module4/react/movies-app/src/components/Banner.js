@@ -15,10 +15,10 @@ class Banner extends Component {
                             <img className="d-block w-100 banner-img" src={`https://image.tmdb.org/t/p/w1920_and_h800_multi_faces//${backdrop_path}`}  alt="..."/>
                         </div>
                         {/* <div className="carousel-item">
-                            <img className="d-block w-100" src={`https://image.tmdb.org/t/p/original${(movie+1).backdrop_path}`} alt="..."/>
+                            <img className="d-block w-100 banner-img" src={`https://image.tmdb.org/t/p/original${backdrop_path}`} alt="..."/>
                         </div>
                         <div className="carousel-item">
-                            <img className="d-block w-100" src={`https://image.tmdb.org/t/p/original${(movie+2).backdrop_path}`}  alt="..."/>
+                            <img className="d-block w-100 banner-img" src={`https://image.tmdb.org/t/p/original${backdrop_path}`}  alt="..."/>
                         </div> */}
 
                         <div className="banner-intro">
@@ -29,12 +29,7 @@ class Banner extends Component {
                 </div>
 
 
-
-
-
 // </div>
-
-
             // <div className="card banner-card">
             //     <img src={`https://image.tmdb.org/t/p/original${backdrop_path}`} className="card-img-top banner-img" alt="..."/>
             //     <div className="banner-intro">

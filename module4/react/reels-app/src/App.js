@@ -4,14 +4,14 @@ import Login from './component/login';
 import Profile from './component/profile';
 import Signup from './component/signup';
 import PageNotFound from './component/pageNotFound';
-// import PageNotFound from './component/pageNotFound';
 import Forget from './component/forget';
 import {Switch, Route} from "react-router-dom"
 
 
 function App() {
   return (<>
-  <Login></Login>
+  {/* <Login></Login> */}
+    <Signup></Signup>
       <Switch>
         <Route path="/feed">
           <Feed></Feed>

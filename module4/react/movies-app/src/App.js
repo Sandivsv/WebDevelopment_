@@ -21,6 +21,7 @@ function App() {
       var elementR = document.querySelector('.bg-dark');
       elementR.classList.remove('scrolled');
     }
+  
 
 });
   return (
