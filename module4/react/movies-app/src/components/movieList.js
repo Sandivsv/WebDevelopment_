@@ -1,8 +1,10 @@
 import { Component } from "react";
-// import { movies } from "../movieData"
 import axios from "axios"
+import { Link } from "react-router-dom";
+
 
 class MovieList extends Component {
+    
     constructor(){
         super();
         this.state={
@@ -45,7 +47,6 @@ class MovieList extends Component {
                 currPage:this.state.currPage-1
             },this.changeMovies);
         }
-        // window.scroll(0, 0);
     }
 
     handlePageClick=(ele)=>{
@@ -54,7 +55,6 @@ class MovieList extends Component {
                 currPage: ele
             },this.changeMovies);
         }
-        // window.scroll(0, 0);
     }
 
     handleFavourites = (movieObj)=>{
@@ -77,12 +77,11 @@ class MovieList extends Component {
             favourites:[...temp]
         })
     }
-     
- 
+
+
 
     
     render() {
-        
         return (
             <div onMouseEnter={() => this.handleFavouritesState()} style={{paddingTop:"15px"}}>
                 <div>
@@ -95,13 +94,16 @@ class MovieList extends Component {
                             <img src={`https://image.tmdb.org/t/p/w220_and_h330_face${movieEle.backdrop_path}`}  className="card-img-top movie-img movie-card-img" alt="..." />
                             <h3 className="movie-rating" style={{color: movieEle.vote_average > 6.5 ?"green":"red"  }}>{movieEle.vote_average}</h3>
                             <h5 className="card-title movie-title">{movieEle.title}</h5>
+                            
                             <div className="fav-btn" style={{ display: 'flex', justifyContent: "center" }}>
                                 {this.state.hover === movieEle.id && (
                                     <button  className="movies-button" onClick={()=>this.handleFavourites(movieEle)}>
                                     {this.state.favourites.includes(movieEle.id)
                                     ?<i className="fa fa-heart-circle-minus" style={{fontSize:"2rem",  paddingTop:"5px"}}></i>
                                     :<i className="fa fa-heart-circle-plus" style={{fontSize:"2rem",  paddingTop:"5px"}}></i>}
-                                </button>)}
+                                </button> 
+                                )}
+                                <Link to="/signup" className="detail-button" style={{textDecoration:"none"}}>View details</Link>
                             </div>
                         </div>
                     ))}

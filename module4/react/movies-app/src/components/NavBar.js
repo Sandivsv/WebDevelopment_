@@ -6,7 +6,6 @@ import "./NavBar.css"
 class NavBar extends Component{
     
 
-
     render(){
         return(
         <nav className="bg-dark fixed-top"> 
