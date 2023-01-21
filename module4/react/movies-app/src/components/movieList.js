@@ -78,6 +78,10 @@ class MovieList extends Component {
         })
     }
 
+    handleDetails(e) {
+        localStorage.setItem("details",JSON.stringify(e));
+    }
+
 
 
     
@@ -99,11 +103,11 @@ class MovieList extends Component {
                                 {this.state.hover === movieEle.id && (
                                     <button  className="movies-button" onClick={()=>this.handleFavourites(movieEle)}>
                                     {this.state.favourites.includes(movieEle.id)
-                                    ?<i className="fa fa-heart-circle-minus" style={{fontSize:"2rem",  paddingTop:"5px"}}></i>
-                                    :<i className="fa fa-heart-circle-plus" style={{fontSize:"2rem",  paddingTop:"5px"}}></i>}
+                                    ?<i className="fa fa-heart-circle-minus" ></i>
+                                    :<i className="fa fa-heart-circle-plus"></i>}
                                 </button> 
                                 )}
-                                <Link to="/signup" className="detail-button" style={{textDecoration:"none"}}>View details</Link>
+                                <Link to="/movie" className="detail-button" onClick={()=>this.handleDetails(movieEle)} style={{textDecoration:"none"}}>View details</Link>
                             </div>
                         </div>
                     ))}

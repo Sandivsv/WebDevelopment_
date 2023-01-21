@@ -6,6 +6,7 @@ import Banner from './components/Banner';
 import MovieList from './components/movieList';
 import NavBar from './components/NavBar';
 import Fav from './components/Fav'
+import Movie from './components/movie';
 // eslint-disable-next-line
 import {BrowserRouter,Routes,Route, Router} from 'react-router-dom'
 
@@ -31,6 +32,7 @@ function App() {
       <Routes>
         <Route path="" element={<><Banner/><MovieList/></>}/>
         <Route path="/favourites" element={<Fav/>}/>
+        <Route path="/movie" element={<Movie/>}/>
       </Routes>
     </BrowserRouter>
     </div>
