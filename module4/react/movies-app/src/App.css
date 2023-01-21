@@ -99,22 +99,22 @@
 .movies-button{
   position: absolute;
   border: none;
-  width: 58px;
-  height: 58px;
-  border-radius: 58px;
+  width: 65px;
+  height: 65px;
+  border-radius: 65px;
   position: absolute;
-  top: 11vw;
-  left: 5.5vw;
-  background-color: #d1d5dd;
-}
-
-.movies-button :hover{
-  border-radius: 58px;
+  top: 10vw;
+  left: 5vw;
   background-color: white;
 }
 
+.movies-button :hover{
+  border-radius: 65px;
+  color: rgba(0, 0, 0, 0.828);
+}
+
 .fa-heart-circle-minus, .fa-heart-circle-plus{
-  font-size: 2rem;
+  font-size: 2.7rem;
   padding-top: 5px;
 }
 
