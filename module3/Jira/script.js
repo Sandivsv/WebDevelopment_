@@ -9,7 +9,7 @@ let addModal = true;
 let removeFlag = false;
 let colors = ['lightpink', 'blue', 'green', 'black']
 let modalPriorityColor = colors[colors.length - 1];
-var uid = new ShortUniqueId();
+var uid = new ShortUniqueId();        // npm i short-unique-id
 
 let ticketArr = [];
 
@@ -22,6 +22,7 @@ if(localStorage.getItem("tickets")){
         createTicket(ticketObj.color,ticketObj.task,ticketObj.id);
     }
 }
+
 
 
 
@@ -131,7 +132,8 @@ function createTicket(ticketColor, task, ticketId) {
                             <div class="lock-unlock"><i class="fa fa-lock"></i></div>`
     mainCont.appendChild(ticketCont);
 
-    //lock unlock handle
+    // add addEventListener for Response
+    //1. lock unlock handle
 
     //update UI
     let lockUnlockBtn = ticketCont.querySelector(".lock-unlock i");
@@ -153,7 +155,7 @@ function createTicket(ticketColor, task, ticketId) {
         updateLocalStorage();
     })
 
-    //handling delete 
+    //2. handling delete 
     ticketCont.addEventListener("click", function () {
         if (removeFlag){
             //Delete from UI
@@ -166,7 +168,7 @@ function createTicket(ticketColor, task, ticketId) {
         }
     })
 
-    //handle color
+    //3. handle color
     let ticketColorBand = ticketCont.querySelector(".ticket-color");
     ticketColorBand.addEventListener("click", function () {
         //update UI

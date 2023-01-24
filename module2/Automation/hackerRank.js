@@ -1,19 +1,22 @@
 //                                                    HackerRank Automation Project 
 
 
+// Note-:     Before use this code First make a hackerRank Account give mail and password in mail and pass section 
+
 
 const puppeteer = require("puppeteer");
-// const mail = "firamay569@arpizol.com";            create a new email and try it
-const mail = "heroje9110@viemery.com";
 
-
+// mail and pass section 
+const mail = "heroje9110@viemery.com";       // create a new temp email and try it
 const pass = "Sandeep@123";
+
+
 const code = require('./code');
 
 
 // let browserPromise = puppeteer.launch({headless: false});       // to open default size browser page
 let browserPromise = puppeteer.launch({headless: false, defaultViewport: null});       // to remove default size of browser page
-// if we add this-->>  (args: ['--start-fullscreen'])  then full screen occupied by browser
+// if we add this -->>  (args: ['--start-fullscreen'])  then full screen occupied by browser
 let page;           //make a globally var for page tab
 // let question = [];
 

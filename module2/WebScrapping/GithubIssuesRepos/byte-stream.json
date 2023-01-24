@@ -1,1 +1,10 @@
-[{"IssueName":"Assertion fail: Trying to read from a previously fclose()'d resource (Windows)","Link":"https://github.com/amphp/byte-stream/issues/79"},{"IssueName":"Ability to read particular length from stream","Link":"https://github.com/amphp/byte-stream/issues/78"}]
+[
+    {
+        "IssueName": "Assertion fail: Trying to read from a previously fclose()'d resource (Windows)",
+        "Link": "https://github.com/amphp/byte-stream/issues/79"
+    },
+    {
+        "IssueName": "Ability to read particular length from stream",
+        "Link": "https://github.com/amphp/byte-stream/issues/78"
+    }
+]

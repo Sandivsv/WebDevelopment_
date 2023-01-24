@@ -5,7 +5,8 @@
 body{
     margin: 0px;
     padding: 0px;
-    background-color: #E0DDAA;
+    /* background-color: #A460ED; */
+    background-image: url(./bg.jpg);
 }
 
 .toolbox-cont{
@@ -22,7 +23,7 @@ body{
     height: 3rem;
     background-color: #EEEDDE;
     width: 18rem;
-    margin-left: 5rem;
+    margin-left: 5vw;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -33,7 +34,7 @@ body{
     background-color: #EEEDDE;
     height: 3rem;
     width: 10rem;
-    margin-left: 5rem;
+    margin-left: 5vw;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -121,6 +122,9 @@ body{
     background-color: #EEEDDE;
     height: 10rem;
     width: 16rem;
+    box-sizing: border-box;
+    box-shadow: 0 10px 15px #00000099;
+    border-radius: 5px;
 }
 
 .ticket-color{

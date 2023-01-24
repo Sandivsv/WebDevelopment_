@@ -1,1 +1,22 @@
-[{"IssueName":"[Feature] Enable OSC8 hyperlinks for line numbers or highlighted line numbers","Link":"https://github.com/sharkdp/bat/issues/2158"},{"IssueName":"Adding syntax for Linker script","Link":"https://github.com/sharkdp/bat/issues/2154"},{"IssueName":"colorize lines in logs differently depending on importance","Link":"https://github.com/sharkdp/bat/issues/2152"},{"IssueName":"add syntax highlighting support for nmap NSE script","Link":"https://github.com/sharkdp/bat/issues/2151"},{"IssueName":"Clickable URLs","Link":"https://github.com/sharkdp/bat/issues/2149"}]
+[
+    {
+        "IssueName": "[Feature] Enable OSC8 hyperlinks for line numbers or highlighted line numbers",
+        "Link": "https://github.com/sharkdp/bat/issues/2158"
+    },
+    {
+        "IssueName": "Adding syntax for Linker script",
+        "Link": "https://github.com/sharkdp/bat/issues/2154"
+    },
+    {
+        "IssueName": "colorize lines in logs differently depending on importance",
+        "Link": "https://github.com/sharkdp/bat/issues/2152"
+    },
+    {
+        "IssueName": "add syntax highlighting support for nmap NSE script",
+        "Link": "https://github.com/sharkdp/bat/issues/2151"
+    },
+    {
+        "IssueName": "Clickable URLs",
+        "Link": "https://github.com/sharkdp/bat/issues/2149"
+    }
+]

@@ -1,0 +1,165 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+html {
+    --orange: orange;
+    --blue: aqua;
+    --red: red;
+    --green: green;
+    --lgreen: lightgreen;
+}
+
+body{
+    background-color: lightgray;
+}
+
+ul{
+    list-style-type: none;  
+}
+
+button {
+    all: unset;
+    cursor: pointer;
+    border: 1px solid gray;
+}
+
+
+
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-left: 10px;
+    margin-right: 30px;
+}
+
+.logo{
+    height: 65px;
+    width: 160px;
+    font-size: 1.5rem;
+    text-align: center;
+    background-color: var(--blue);
+    border-radius: 8px;
+}
+
+.text{
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+.circle{
+    height: 70px;
+    width: 70px;
+    border: none;
+    border-radius: 35px;
+    background-color: var(--lgreen);
+}
+
+.bottom{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 10px;
+    margin-top: 80px;
+}
+
+.empty{
+    width: 150px;
+}
+
+.barcode{
+    height: 35px;
+    width: 90px;
+    text-align: center;
+    background-color: var(--orange);
+    margin: 0 15px 0 15px;
+}
+
+.bnum{
+    height: 50px;
+    width: 170px;
+    font-size: 1.5rem;
+    text-align: center;
+    background-color: var(--blue);
+    margin: 0 0 20px 0;
+}
+
+.status{
+    height: 35px;
+    width: 90px;
+    text-align: center;
+    background-color: var(--orange);
+    margin-left: 15px;
+    margin-right: 30px;
+}
+
+.ans{
+    height: 50px;
+    width: 90px;
+    font-size: 1.15rem;
+    text-align: center;
+    background-color: var(--red);
+    margin-bottom: 45px;
+}
+
+.ok{
+    height: 35px;
+    width: 120px;
+    font-weight: 550;
+    text-align: center;
+    background-color: var(--blue);
+}
+
+.not-ok{
+    height: 35px;
+    width: 130px;
+    font-weight: 550;
+    text-align: center;
+    background-color: var(--blue);
+    margin-bottom: 15px;
+}
+
+.num1{
+    height: 70px;
+    width: 70px;
+    font-size: 2.5rem;
+    text-align: center;
+    background-color: var(--green);
+    margin-left: 40px;
+}
+
+.num2{
+    height: 60px;
+    width: 60px;
+    font-size: 2.5rem;
+    text-align: center;
+    background-color: var(--red);
+    margin-left: 35px;
+}
+
+.count{
+    height: 50px;
+    width: 220px;
+    text-align: center;
+    background-color: var(--blue);
+    margin-bottom: 15px;
+    margin-left: 15px;
+}
+
+.ok1{
+    height: 35px;
+    width: 110px;
+    text-align: center;
+    background-color: var(--green);
+    margin-bottom: 40px;
+}
+
+.not-ok1{
+    height: 35px;
+    width: 140px;
+    text-align: center;
+    background-color: var(--red);
+}

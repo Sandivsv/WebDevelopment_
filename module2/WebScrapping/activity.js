@@ -1,4 +1,4 @@
-
+// To run this file type in terminal=> "node activity.js" and press enter 
 // use of JSDOM to search in form of selector 
 const request = require('request');
 const jsdom = require('jsdom');
